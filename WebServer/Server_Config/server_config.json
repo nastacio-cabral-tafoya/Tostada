@@ -1,0 +1,32 @@
+{
+    "non-ssl-port": 8080,
+    "ssl-port": 8443,
+    "server-host": "10.0.0.101",
+    "cert-location": "C:\\Users\\Nasta\\WebServer\\web\\certifications\\webserver-certs\\fullchain.pem",
+    "key-location": "C:\\Users\\Nasta\\WebServer\\web\\certifications\\webserver-certs\\private.pem",
+    "pepper": "web/files/private/misc/pepper",
+    "pepperkey": "web/certifications/keys/pepperkey",
+    "saltskey": "web/certifications/keys/saltskey",
+    "userskey": "web/certifications/keys/userskey",
+    "queue-limit": 100,
+    "socket-buffer-size": 4096,
+    "enable-https": {
+        "enabled": true,
+        "force-ssl": {
+            "force": true,
+            "true-path": true
+        }
+    },
+    "max-threads": 100,
+    "log-database": {
+        "type": "sqlite",
+        "sqlite-file": "log.db",
+        "mysql": {
+            "host": "127.0.0.1",
+            "port": 3306,
+            "database": "webserver",
+            "user": "webserver",
+            "password": ""
+        }
+    }
+}
