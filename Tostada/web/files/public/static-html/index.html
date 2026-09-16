@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to Tostada HTTP Server.">
+<title>Tostada HTTP Server</title>
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f5f7;
+    color: #202124;
+    display: flex;
+    flex-direction: column;
+}
+.container { width: min(100% - 2rem, 1100px); margin: 0 auto; }
+header { background: #202124; color: white; padding: 1rem 0; }
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.brand { margin: 0; font-size: 1.25rem; font-weight: 700; }
+nav a { color: white; text-decoration: none; margin-left: 1rem; }
+nav a:hover { text-decoration: underline; }
+main { flex: 1; padding: 4rem 0; }
+.hero {
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.hero h1 { margin: 0 0 1rem; font-size: clamp(2.25rem, 6vw, 4rem); line-height: 1; }
+.hero p {
+    max-width: 700px;
+    margin: 0 0 1.5rem;
+    color: #5f6368;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.button {
+    display: inline-block;
+    padding: .75rem 1.1rem;
+    border-radius: 7px;
+    background: #202124;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+.button:hover { opacity: .85; }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.card {
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+.card h2 { margin-top: 0; font-size: 1.15rem; }
+.card p { margin-bottom: 0; color: #5f6368; line-height: 1.6; }
+footer { padding: 1.5rem 0; color: #5f6368; font-size: .9rem; }
+@media (max-width: 700px) {
+    header .container { align-items: flex-start; flex-direction: column; }
+    nav a { margin: 0 1rem 0 0; }
+    main { padding: 2rem 0; }
+    .hero { padding: 2rem; }
+    .cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<p class="brand">Tostada HTTP Server</p>
+<nav aria-label="Main navigation"><a href="/">Home</a></nav>
+</div>
+</header>
+
+<main>
+<div class="container">
+<section class="hero">
+<h1>Welcome.</h1>
+<p>Your Tostada HTTP Server is up and running. This page is being served directly by your server.</p>
+<a class="button" href="/">Return Home</a>
+</section>
+
+<section class="cards" aria-label="Server information">
+<article class="card">
+<h2>HTTP</h2>
+<p>Serving web content using your custom HTTP/1.1 server.</p>
+</article>
+<article class="card">
+<h2>HTTPS</h2>
+<p>TLS is enabled for secure connections to the server.</p>
+</article>
+<article class="card">
+<h2>Ready</h2>
+<p>The server is ready to handle requests.</p>
+</article>
+</section>
+</div>
+</main>
+
+<footer>
+<div class="container">&copy; Tostada HTTP Server</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<style>
+			#text-container
+			{
+				position: fixed;
+				top: calc(50vh - 46px);
+				left: calc(50vw - 104px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="text-container">
+			<span style="color: red; font-size: 300%;">404 Error</span>
+			<br>
+			<span style="color: black; font-size: 200%"><%self.template_print(parameters["path"])%> Not Found</span>
+		</div>
+	</body>
+</html>
