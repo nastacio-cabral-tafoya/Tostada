@@ -1,0 +1,17 @@
+#controls_holder
+{
+	position: absolute;
+	z-index: 1000;
+}
+
+.webgl_canvas
+{
+	position: absolute;
+	left: calc(50% - 305px);
+	top: calc(50% - 305px);
+}
+
+#draw_button
+{
+	width: 321px;
+}

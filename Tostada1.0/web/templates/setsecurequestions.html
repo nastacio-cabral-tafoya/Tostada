@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/classes.css">
+		<link rel="stylesheet" href="css/ids.css">
+	</head>
+	<body>
+		<div class="pagewrap" id="login-pagewrap">
+			<div class="hidden" id="disabling-overlay"></div>
+			<div class="hidden alert-container" id="alert-box">
+				<div id="alert-message"></div>
+				<input name="renew-session" type="button" class="button" id="alert-okay-button" value="">
+			</div>
+			<div class="hidden" id="loader-container"><div class="lds-dual-ring"></div></div>
+			<div class="header" id="set-secure-questions-header">
+				<div class="nav-bar">
+					<a href="/dashboard"><div class="header-text nav-bar-item">Dashboard</div></a>
+					<a href="/fsequence?limit=100"><div class="header-text nav-bar-item">Fibonacci Sequencer</div></a>
+				</div>
+				<div class="header-text" id="account-button" onclick="post('deauthenticate', {}, true)"><%self.template_print(parameters["username"])%></div>
+			</div>
+			<div class="center-pane" id="set-secure-questions-pane">
+				<div class="body" id="set-secure-questions-body">
+					<div class="header" id="login-header">
+						<center><span class="header-text" id="login-header-text">Set Security Questions</span></center>
+					</div>
+					<div class="body" id="login-body">
+						<select name="securequestion1" class="selectbox" id="secure_question_1">
+							<option value="" selected></option>
+							<%
+								for question in parameters["securequestions"]:
+									self.template_print("<option value=\"" + str(question[0]) + "\">" + str(question[1]) + "</option>")
+							%>
+						</select>
+						<input type="password" name="secureanswer1" class="textbox textbox-no-status bottom-margin" id="secure_answer_1" value="" placeholder="Answer to Question 1">
+						<select name="securequestion2" class="selectbox" id="secure_question_2">
+							<option value="" selected></option>
+							<%
+								for question in parameters["securequestions"]:
+									self.template_print("<option value=\"" + str(question[0]) + "\">" + str(question[1]) + "</option>")
+							%>
+						</select>
+						<input type="password" name="secureanswer2" class="textbox textbox-no-status bottom-margin" id="secure_answer_2" value="" placeholder="Answer to Question 2">
+						<select name="securequestion3" class="selectbox" id="secure_question_3">
+							<option value="" selected></option>
+							<%
+								for question in parameters["securequestions"]:
+									self.template_print("<option value=\"" + str(question[0]) + "\">" + str(question[1]) + "</option>")
+							%>
+						</select>
+						<input type="password" name="secureanswer3" class="textbox textbox-no-status bottom-margin" id="secure_answer_3" value="" placeholder="Answer to Question 3">
+						<input type="button" onclick="submit_data('put', 'setsecurequestions')" name="submit" class="button" id="create-account-button" value="Sign In">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/functions.js"></script>
+	</body>
+</html>

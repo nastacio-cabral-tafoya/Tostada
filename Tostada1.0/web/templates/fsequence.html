@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/classes.css">
+		<link rel="stylesheet" href="css/ids.css">
+	</head>
+	<body>
+		<div class="pagewrap" id="dashboard-pagewrap">
+			<div class="hidden" id="disabling-overlay"></div>
+			<div class="hidden alert-container" id="alert-box">
+				<div id="alert-message"></div>
+				<input name="renew-session" type="button" class="button" id="alert-okay-button" value="">
+			</div>
+			<div class="hidden" id="loader-container"><div class="lds-dual-ring"></div></div>
+			<div class="phantom-spacer horizontal-pane-spacer hidden" id="phantom-horizontal-spacer"></div>
+			<div class="header" id="dashboard-header">
+			<div class="nav-bar">
+				<a href="/dashboard"><div class="header-text nav-bar-item">Dashboard</div></a>
+				<a href="/discovery"><div class="header-text nav-bar-item">Discovery</div></a>
+				<a href="/systemlog"><div class="header-text nav-bar-item">System Log</div></a>
+			</div>
+				<div class="header-text" id="account-button" onclick="post('deauthenticate', {}, true)"><%self.template_print(parameters["username"])%></div>
+			</div>
+			<div class="body" id="dashboard-body" style="overflow-y: scroll; height: calc(100% - 55px);">
+				<table>
+					<%
+						val_1 = 0
+						val_2 = 1
+						
+						try:
+							for i in range(0, int(parameters["limit"])):
+								if (i == 0):
+									self.template_print("<tr><td>" + str(i + 1) + "</td><td>" + str(val_1) + "</td></tr>")
+								elif (i == 1):
+									self.template_print("<tr><td>" + str(i + 1) + "</td><td>" + str(val_2) + "</td></tr>")
+								else:
+									current = (val_1 + val_2)
+									self.template_print("<tr><td>" + str(i + 1) + "</td><td>" + str(current) + "</td></tr>")
+									val_1 = val_2
+									val_2 = current
+						except:
+							self.template_print("<tr><td>Error: No Limit Given!</td></tr>")
+					%>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/functions.js"></script>
+		<script>
+			var timeout = strToInt(<%self.template_print(parameters["session-timeout-seconds"], end="")%>);
+			var timein  = 0;
+			
+			var intervalId = window.setInterval(function(){
+				timein++;
+				session_timeout(timeout - timein);
+			}, 1000);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+.webgl_canvas
+{
+	position: absolute;
+	left: calc(50% - 425px);
+	top: calc(50% - 425px);
+	border: solid;
+	border-color: #000000;
+	border-radius: 12px;
+}

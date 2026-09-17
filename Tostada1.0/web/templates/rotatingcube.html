@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/rotatingcube/styles.css">
+		<script type="text/javascript" src="scripts/rotatingcube/scripts.js"></script>
+	</head>
+	<body class="page-wrap">
+		<div id="ctrl-wrap">
+			<table>
+				<tr><td>Zoom</td><td><input type="range" min="0" max="100" value="50" id="fbz-rng"></td><td><button onclick="resetFBZ()">Reset</button></td></tr>
+				<tr><td>Up / Down</td><td><input type="range" min="0" max="100" value="50" id="ud-rng"></td><td><button onclick="resetUD()">Reset</button></td></tr>
+				<tr><td>Left / Right</td><td><input type="range" min="0" max="100" value="50" id="lr-rng"></td><td><button onclick="resetLR()">Reset</button></td></tr>
+			</table>
+		</div>
+		<canvas class="webgl_canvas" id="rotating_cube">Your browser does not support HTML5!</canvas>
+		<script>
+			document.getElementById("fbz-rng").addEventListener("input", function (event){// Adds an input event listener to update the zoom in real time while the user is interacting with the slider.
+				setFBZAmount(document.getElementById("fbz-rng").value, document.getElementById("ud-rng").value, document.getElementById("lr-rng").value);
+			}, false);
+			
+			document.getElementById("ud-rng").addEventListener("input", function (event){// Adds an input event listener to update the up/down position in real time while the user is interacting with the slider.
+				setUDAmount(document.getElementById("fbz-rng").value, document.getElementById("ud-rng").value);
+			}, false);
+			
+			document.getElementById("lr-rng").addEventListener("input", function (event){// Adds an input event listener to update the left/right position in real time while the user is interacting with the slider.
+				setLRAmount(document.getElementById("fbz-rng").value, document.getElementById("lr-rng").value);
+			}, false);
+			
+			// Initializes canvas window and webgl context.
+			makeCanvasWindowSize();
+			Initialize_WebGL_Context();
+			AssociateAttributesToVertexShader();
+			
+			// Draws each animation frame of the cube.
+			Draw_And_Animate_Cube(0);
+		</script>
+	</body>
+</html>

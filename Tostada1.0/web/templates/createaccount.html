@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/classes.css">
+		<link rel="stylesheet" href="css/ids.css">
+	</head>
+	<body>
+		<div class="pagewrap" id="login-pagewrap">
+			<div class="hidden" id="disabling-overlay"></div>
+			<div class="hidden alert-container" id="alert-box">
+				<div id="alert-message"></div>
+				<input name="renew-session" type="button" class="button" id="alert-okay-button" value="">
+			</div>
+			<div class="hidden" id="loader-container"><div class="lds-dual-ring"></div></div>
+			<div class="center-pane" id="create-account-pane">
+				<div class="header">
+					<center><span class="header-text">Test Website</span></center>
+				</div>
+				<div class="body" id="create-account-body">
+					<div class="header" id="login-header">
+						<center><span class="header-text" id="login-header-text">Create New Account</span></center>
+					</div>
+					<div class="body" id="login-body">
+						<input type="text" name="firstname" class="textbox textbox-no-status bottom-margin" id="firstname-textbox" placeholder="First Name">
+						<input type="text" name="lastname" class="textbox textbox-no-status bottom-margin" id="lastname-textbox" placeholder="Last Name">
+						<input type="text" name="dob" class="textbox textbox-no-status bottom-margin" id="dob-textbox" placeholder="Date of Birth", maxlength="10">
+						<input type="text" name="email" class="textbox textbox-no-status bottom-margin" id="email-textbox" placeholder="EMail">
+						<input type="text" name="username" class="textbox textbox-no-status bottom-margin" id="username-textbox" placeholder="Username">
+						<input type="password" name="password" class="textbox textbox-no-status bottom-margin" id="password-textbox" placeholder="Password">
+						<input type="password" name="confirmpassword" class="textbox textbox-no-status bottom-margin" id="confirmpassword-textbox" placeholder="Confirm Password">
+						<input type="button" onclick="submit_data('put', 'registernewaccount')" name="submit" class="button" id="create-account-button" value="Sign In">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/functions.js"></script>
+		<script type="text/javascript" src="scripts/createaccount.js"></script>
+	</body>
+</html>

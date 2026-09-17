@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/classes.css">
+		<link rel="stylesheet" href="css/ids.css">
+	</head>
+	<body>
+		<div class="pagewrap" id="discovery-pagewrap">
+			<div class="hidden" id="disabling-overlay"></div>
+			<div class="hidden alert-container" id="alert-box">
+				<div id="alert-message"></div>
+				<input name="renew-session" type="button" class="button" id="alert-okay-button" value="">
+			</div>
+			<div class="hidden" id="loader-container"><div class="lds-dual-ring"></div></div>
+			<div class="phantom-spacer horizontal-pane-spacer hidden" id="phantom-horizontal-spacer"></div>
+			<div class="header" id="discovery-header">
+				<div class="nav-bar">
+					<a href="/dashboard"><div class="header-text nav-bar-item">Dashboard</div></a>
+					<a href="/fsequence?limit=100"><div class="header-text nav-bar-item">Fibonacci Sequencer</div></a>
+				    <a href="/systemlog"><div class="header-text nav-bar-item">System Log</div></a>
+				</div>
+				<div class="header-text" id="account-button" onclick="post('deauthenticate', {}, true)"><%self.template_print(parameters["username"])%></div>
+			</div>
+			<div class="body" id="discovery-form">
+				<div class="header" id="discovery-form-header">
+					<center><span class="header-text" id="discovery-form-header-text">Discovery</span></center>
+				</div>
+				<div class="body" id="discovery-form-body">
+					<select name="methodselect" class="selectbox" id="methodselect-selectbox" onchange="change_discovery_form()">
+						<option value="standard" selected>Standard</option>
+						<option value="cdir">CDIR Notation</option>
+					</select>
+					<input type="text" name="gpen-username" class="textbox textbox-no-status bottom-margin" id="gpen-username-textbox" placeholder="GPEN Username">
+					<input type="password" name="gpen-password" class="textbox textbox-no-status bottom-margin" id="gpen-password-textbox" placeholder="GPEN Password">
+					<div class="interchangable-fields visible" id="standard-fields">
+						<input type="text" name="network" class="textbox textbox-no-status bottom-margin standard" id="discovery-network-textbox" placeholder="Network e.g(192.168.1.0)">
+						<input type="text" name="subnet" class="textbox textbox-no-status bottom-margin standard" id="discovery-subnet-textbox" placeholder="Subnet e.g(255.255.255.0)">
+						<input type="button" name="discoverstandard" class="button standard" id="discovery-discoverstandard-button" onclick="standard_discover()" value="Discover">
+					</div>
+					<div class="interchangable-fields hidden" id="cdir-fields">
+						<input type="text" name="addressrange" class="textbox textbox-no-status bottom-margin cdir" id="discovery-addressrange-textbox" placeholder="Address Range e.g(192.168.1.0/24)">
+						<input type="button" name="discovercdir" class="button cdir" id="discovery-discovercdir-button" onclick="cdir_discover()" value="Discover">
+					</div>
+				</div>
+			</div>
+			<div class="body" id="data-table-body">
+				<table id="title-table" class="discovery-table"></table>
+				<table id="data-table" class="discovery-table"></table>
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/functions.js"></script>
+		<script type="text/javascript" src="scripts/discovery.js"></script>
+		<script>
+			var timeout = strToInt(<%self.template_print(parameters["session-timeout-seconds"], end="")%>);
+			var timein  = 0;
+			
+			var intervalId = window.setInterval(function(){
+				timein++;
+				session_timeout(timeout - timein);
+			}, 1000);
+		</script>
+	</body>
+</html>

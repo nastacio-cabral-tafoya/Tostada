@@ -1,0 +1,17 @@
+.page-wrap
+{
+	overflow: hidden;
+}
+
+.webgl_canvas
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#ctrl-wrap
+{
+	z-index: 1;
+	position: absolute;
+}

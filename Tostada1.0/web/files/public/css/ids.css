@@ -1,0 +1,185 @@
+#login-pagewrap
+{
+	/*background: url("/css/images/login-background-2.jpg") center center fixed;*/
+	background: white;
+	background-size: cover;
+}
+
+#login-header
+{
+	border-bottom: none;
+	background-color: white;
+}
+
+#login-header-text
+{
+	color: black;
+}
+
+#dashboard-body
+{
+	background-color: white;
+}
+
+#dashboard-left-pane
+{
+	
+}
+
+#left-center-spacer
+{
+	left: var(--left-pane-width);
+}
+
+#center-right-spacer
+{
+	right: var(--right-pane-width);
+}
+
+#bottom-body-spacer
+{
+	bottom: var(--footer-height);
+}
+
+#account-button
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: var(--account-button-width);
+	padding-left: var(--account-button-lr-padding);
+	padding-right: var(--account-button-lr-padding);
+	cursor: pointer;
+	background-color: black;
+	-webkit-transition: border 0.25s ease-in-out;                  
+	-moz-transition: border 0.25s ease-in-out;                 
+	-o-transition: border 0.25s ease-in-out;   
+	-ms-transition: border 0.25s ease-in-out;          
+	transition: border 0.25s ease-in-out;
+	text-align: center;
+}
+
+#account-button:hover
+{
+	background-color: white;
+	color: black;
+}
+
+#disabling-overlay
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 999;
+}
+
+#loader-container
+{
+	position: absolute;
+	top: calc(50% - 40px);
+	left: calc(50% - 40px);
+	height: 80px;
+	width: 80px;
+	z-index: 1000;
+}
+
+#discovery-form
+{
+	height: calc(100% + var(--header-height));
+	width: var(--discovery-body-width);
+	border-right: 1px solid black;
+}
+
+#discovery-form-header
+{
+	background-color: white;
+	border-bottom: none;
+}
+
+#discovery-form-header-text
+{
+	color: black;
+}
+
+#methodselect-selectbox
+{
+	margin-bottom: 21px;
+}
+
+#data-table-body
+{
+	right: 0px !important;
+	left: auto;
+	height: calc(100% - (var(--header-height) + 1px));
+	width: calc(100% - (var(--discovery-body-width) + 1px));
+	overflow-y: scroll;
+}
+
+#title-table
+{
+	position: fixed;
+    top: 55px;
+    z-index: 1003;
+    background-color: white;
+}
+
+#data-table
+{
+	position: absolute;
+	top: 45px;
+}
+
+#alert-message
+{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	max-height: calc(100% - 42px);
+	width: calc(100% - 10%);
+	margin-bottom: 13px;
+}
+
+#create-account-pane
+{
+	left: 0px;
+	position: relative;
+	margin: 0 auto;
+	width: 50vw;
+}
+
+#create-account-body
+{
+	height: calc(100% - 55px);
+	overflow-y: scroll;
+}
+
+#set-secure-questions-body
+{
+	top: 0px;
+}
+
+#create-account-button
+{
+	margin-bottom: 21px;
+}
+
+#login-links
+{
+	position: relative;
+    left: 50%;
+	margin-top: 8px;
+    width: calc(100% - 38px);
+    transform: translateX(-50%);
+}
+
+#set-secure-questions-pane
+{
+	top: 56px;
+	height: calc(100% - 56px);
+	overflow-y: scroll;
+}

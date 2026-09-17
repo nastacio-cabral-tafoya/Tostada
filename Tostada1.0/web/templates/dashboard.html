@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/classes.css">
+		<link rel="stylesheet" href="css/ids.css">
+	</head>
+	<body>
+		<div class="pagewrap" id="dashboard-pagewrap">
+			<div class="hidden" id="disabling-overlay"></div>
+			<div class="hidden alert-container" id="alert-box">
+				<div id="alert-message"></div>
+				<input name="renew-session" type="button" class="button" id="alert-okay-button" value="">
+			</div>
+			<div class="hidden" id="loader-container"><div class="lds-dual-ring"></div></div>
+			<div class="phantom-spacer horizontal-pane-spacer hidden" id="phantom-horizontal-spacer"></div>
+			<div class="header" id="dashboard-header">
+			<div class="nav-bar">
+				<a href="/discovery"><div class="header-text nav-bar-item">Discovery</div></a>
+				<a href="/fsequence?limit=100"><div class="header-text nav-bar-item">Fibonacci Sequencer</div></a>
+				<a href="/systemlog"><div class="header-text nav-bar-item">System Log</div></a>
+			</div>
+				<div class="header-text" id="account-button" onclick="post('deauthenticate', {}, true)"><%self.template_print(parameters["username"])%></div>
+			</div>
+			<div class="body" id="dashboard-body">
+				<div class="phantom-spacer vertical-pane-spacer hidden" id="phantom-vertical-spacer"></div>
+				<div class="left-pane" id="dashboard-left-pane">
+				</div>
+				<div class="vertical-pane-spacer" id="left-center-spacer">
+				</div>
+				<div class="center-pane" id="dashboard-center-pane">
+				</div>
+				<div class="vertical-pane-spacer" id="center-right-spacer">
+				</div>
+				<div class="right-pane" id="dashboard-right-pane">
+				</div>
+			</div>
+			<div class="horizontal-pane-spacer" id="bottom-body-spacer">
+			</div>
+			<div class="footer" id="dashboard-footer">
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/functions.js"></script>
+		<script type="text/javascript" src="scripts/dashboard.js"></script>
+		<script>
+			var timeout = strToInt(<%self.template_print(parameters["session-timeout-seconds"], end="")%>);
+			var timein  = 0;
+			
+			var intervalId = window.setInterval(function(){
+				timein++;
+				session_timeout(timeout - timein);
+			}, 1000);
+		</script>
+	</body>
+</html>

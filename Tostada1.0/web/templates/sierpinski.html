@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/sierpinski/styles.css">
+	</head>
+	<body>
+		<div id="controls_holder">
+			<table>
+				<tr><td>Number of Iterations: </td><td><input type="text" id="iterations_txbx"></td></tr>
+				<tr><td colspan="2"><input type="button" id="draw_button" value="Draw Sierpinski Triangle" onclick="drawSierpinskiTriangle()"></td></tr>
+			</table>
+		</div>
+		<canvas height="610" width="610" class="webgl_canvas" id="triangle" style="z-index: 0"></canvas>
+		<canvas height="610" width="610" class="webgl_canvas" id="points" style="z-index: 1"></canvas>
+		<script type="text/javascript" src="scripts/sierpinski/scripts.js"></script>
+	</body>
+</html>
