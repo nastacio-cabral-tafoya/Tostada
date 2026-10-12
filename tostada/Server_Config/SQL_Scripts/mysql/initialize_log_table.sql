@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS log (
+	id INT NOT NULL AUTO_INCREMENT,
+	logdate VARCHAR(32) NOT NULL,
+	logfile TEXT NOT NULL,
+	logfunc TEXT NOT NULL,
+	loguser TEXT NOT NULL,
+	logstr TEXT,
+	PRIMARY KEY(id)
+);

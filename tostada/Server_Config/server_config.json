@@ -1,0 +1,29 @@
+{
+    "non-ssl-port": 80,
+    "ssl-port": 443,
+    "hostname": "",
+    "server-host": "",
+    "cert-location": "",
+    "key-location": "",
+    "queue-limit": 100,
+    "socket-buffer-size": 4096,
+    "enable-https": {
+        "enabled": true,
+        "force-ssl": {
+            "force": true,
+            "true-path": true
+        }
+    },
+    "max-threads": 100,
+    "database": {
+        "type": "mysql",
+        "sqlite-file": "tostada.db",
+        "mysql": {
+            "host": "",
+            "port": 3306,
+            "database": "tostada",
+            "user": "username",
+            "password": "password"
+        }
+    }
+}
